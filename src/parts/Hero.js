@@ -5,7 +5,7 @@ import frameHero_ from 'assets/images/frame-hero-image.jpg'
 import CitiesIcon from 'assets/icons/icon-cities.svg'
 import TravelerIcon from 'assets/icons/icon-traveler.svg'
 import TreasureIcon from 'assets/icons/icon-treasure.svg'
-import numberFormat from 'utils/numberFormat'
+import { formatNumberingIndonesian } from 'utils/numberFormat'
 
 import Button from 'elements/Button'
 
@@ -38,9 +38,9 @@ export default function Hero(props) {
             <div className="col-auto" style={{ marginRight: 35 }}>
               <img width="36" height="36" src={TravelerIcon} alt={`${props.data.travelers} Travelers`} />
               <h6 className="mt-3">
-                { numberFormat(props.data.travelers) } 
+                { formatNumberingIndonesian(props.data.travelers) }
                 <span className="text-gray-500 font-weight-light">
-                  Travelers
+                  &nbsp; Travelers
                 </span>
               </h6>
             </div>
@@ -48,9 +48,9 @@ export default function Hero(props) {
             <div className="col-auto" style={{ marginRight: 35 }}>
               <img width="36" height="36" src={CitiesIcon} alt={`${props.data.treasures} Treasures`} />
               <h6 className="mt-3">
-                { numberFormat(props.data.treasures) } 
+                { formatNumberingIndonesian(props.data.treasures) }
                 <span className="text-gray-500 font-weight-light">
-                  Treasures
+                  &nbsp; Treasures
                 </span>
               </h6>
             </div>
@@ -58,9 +58,9 @@ export default function Hero(props) {
             <div className="col-auto">
               <img width="36" height="36" src={TreasureIcon} alt={`${props.data.cities} Cities`} />
               <h6 className="mt-3">
-                { numberFormat(props.data.cities) } 
+                { formatNumberingIndonesian(props.data.cities) }
                 <span className="text-gray-500 font-weight-light">
-                  Cities
+                  &nbsp; Cities
                 </span>
               </h6>
             </div>

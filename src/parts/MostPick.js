@@ -1,5 +1,6 @@
 import React from 'react'
 import Button from 'elements/Button'
+import { formatCurrencyUS } from 'utils/numberFormat'
 
 export default function MostPick(props) {
   return (
@@ -12,8 +13,8 @@ export default function MostPick(props) {
               <div key={`mostpicked-${index}`} className={`item column-4 ${index === 0 ? "row-2" : "row=1"}`}>
                 <div className="card card-featured">
                   <div className="tag">
-                    ${item.price}
-                    <span className="font-weight-light">per {item.unit}</span>
+                    { formatCurrencyUS(item.price) }
+                    <span className="font-weight-light"> per {item.unit}</span>
                   </div>
                   <figure className="img-wrapper">
                     <img src={item.imageUrl} alt={item.name} />
