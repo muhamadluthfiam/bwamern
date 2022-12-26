@@ -36,7 +36,7 @@ export default function Star({ className, value, height, width, spacing }) {
     starPlaceholder.push(
       <div
         className="star placeholder"
-        key={`star-placeholder-${index}`}
+        key={`stars-placeholder-${index}`}
         style={{ left: index * width, height: height, width: width, marginRight: spacing }}
       ></div>
     );
