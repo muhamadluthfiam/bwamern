@@ -28,7 +28,7 @@ export default function MostPick(props) {
                     </figure>
                     <div className="meta-wrapper">
                       <Button
-                        type="link"
+                        type={"link"}
                         className="stretched-link d-block text-white"
                         href={`/properties/${item._id}`}
                       >
