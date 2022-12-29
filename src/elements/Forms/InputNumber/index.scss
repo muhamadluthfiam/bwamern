@@ -17,14 +17,17 @@
       user-select: none;
       &.minus {
         background-color: $red;
+        color: $white;
       }
 
       &.plus {
         background-color: $teal;
+        color: $white;
       }
     }
 
     input.form-control {
+      height: 45px;
       border: 0;
       border-radius: 0;
       outline: 0;

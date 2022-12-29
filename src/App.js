@@ -1,18 +1,30 @@
-import React from 'react';
-import 'assets/scss/style.scss';
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import React from "react";
+import { createBrowserHistory } from "history";
+import { Router, Route, Switch } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import LandingPage from "pages/LandingPage";
+import BrowserBy from "pages/BrowserBy";
+import ExamplePage from "pages/ExamplePage";
+import StoriesPage from "pages/StoriesPage";
+import "assets/scss/style.scss";
 
-import LandingPage from 'pages/LandingPage';
-import PropertiesPage from 'pages/PropertiesPage';
-
+const history = createBrowserHistory({
+  basename: process.env.PUBLIC_URL,
+});
 
 function App() {
   return (
     <div className="App">
-      <Router>
-        <Route path="/" component={ LandingPage }></Route>
-        <Route path="properties" componenent={ PropertiesPage }></Route>
+      <Router history={history} basename={process.env.PUBLIC_URL}>
+        <Switch>
+          <Route exact path="/" component={LandingPage} />
+          <Route path="/browse-by" component={BrowserBy} />
+          <Route path="/stories" component={StoriesPage}/>
+          <Route path="/example" component={ExamplePage}/>
+        </Switch>
       </Router>
+
+      <ToastContainer></ToastContainer>
     </div>
   );
 }
