@@ -27,4 +27,8 @@ function formatCurrencyUS(number) {
   return formatNumbering.format(number);
 }
 
-export { formatNumberingIndonesian, formatCurrencyUS }
+function formatDate(number) {
+  return number
+}
+
+export { formatNumberingIndonesian, formatCurrencyUS, formatDate }
