@@ -1,13 +1,14 @@
 import React, { useState, useRef, useEffect } from "react";
 import propTypes from "prop-types";
+
 import { DateRange } from "react-date-range";
 
 import "./index.scss";
-import "react-date-range/dist/styles.css";
-import "react-date-range/dist/theme/default.css";
+import "react-date-range/dist/styles.css"; // main css file
+import "react-date-range/dist/theme/default.css"; // theme css file
 
-import formatDate from "utils/formatDate";
-import iconCalendar from "assets/icons/ic_calendar.svg";
+import formatDate from "utils/formatDate.js";
+import iconCalendar from "assets/icons/icon_calendar.svg";
 
 export default function Date(props) {
   const { value, placeholder, name } = props;
@@ -20,7 +21,7 @@ export default function Date(props) {
         name: name,
       },
     };
-    props.onchange(target);
+    props.onChange(target);
   };
 
   useEffect(() => {
@@ -33,7 +34,7 @@ export default function Date(props) {
 
   const refDate = useRef(null);
   const handleClickOutside = (event) => {
-    if (refDate && refDate.current.contains(event.target)) {
+    if (refDate && !refDate.current.contains(event.target)) {
       setIsShowed(false);
     }
   };
@@ -42,10 +43,12 @@ export default function Date(props) {
     focus.indexOf(1) < 0 && setIsShowed(false);
   };
 
-  const displayDate = `${value.startDate ? formatDate(value.startDate) : ""} ${
+  const displayDate = `${value.startDate ? formatDate(value.startDate) : ""}${
     value.endDate ? " - " + formatDate(value.endDate) : ""
   }`;
-  return <div
+
+  return (
+    <div
       ref={refDate}
       className={["input-date mb-3", props.outerClassName].join(" ")}
     >
@@ -63,6 +66,7 @@ export default function Date(props) {
           placeholder={placeholder}
           onClick={() => setIsShowed(!isShowed)}
         />
+
         {isShowed && (
           <div className="date-range-wrapper">
             <DateRange
@@ -76,12 +80,12 @@ export default function Date(props) {
         )}
       </div>
     </div>
-  
+  );
 }
 
 Date.propTypes = {
   value: propTypes.object,
-  onchange: propTypes.func,
+  onChange: propTypes.func,
   placeholder: propTypes.string,
   outerClassName: propTypes.string,
 };
